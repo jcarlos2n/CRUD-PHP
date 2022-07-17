@@ -1,0 +1,33 @@
+version: "3.6"
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - fsd_php_crud:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=fsd_crud_php
+    networks:
+      - fsd_crud_php_network    
+
+  web:
+    build: ./
+    image: php:8.0-apache
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "8000:80"
+    networks:
+      - fsd_crud_php_network
+    depends_on:
+      - db
+    links:
+      - db
+
+volumes:
+  fsd_php_crud:
+networks:
+  fsd_crud_php_network:
