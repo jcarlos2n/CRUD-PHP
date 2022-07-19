@@ -1,5 +1,5 @@
 <?php
-    echo "Delete";
+   
     try {
         require('./db.php');
     
@@ -10,6 +10,8 @@
         $result = $connection->prepare($sql);
     
         $result->execute();
+
+        header("Location: ./index.php");
     
     } catch (\Exception $ex) {
         echo 'Error Exception: ' . $ex->getMessage();

@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    height: auto;
+}
+
+.cont{
+    padding: 2em;
+    margin: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: auto;
+    background-color: aqua;
+    border-radius: 2em;
+    
+}
+
+.boton {
+    border-radius: 1em;
+    border: solid black 0.01em;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
